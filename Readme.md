@@ -223,7 +223,7 @@ Para acessar as telas, basta logar com um desses usuários:
  
 -  **GET**:
 ````
-GET http://webapp-rm5555.azurewebsites.net//api/motos
+GET http://webapp-rm5555.azurewebsites.net/api/motos
 ````
 
 
@@ -254,5 +254,5 @@ PUT https://webapp-rm5555.azurewebsites.net/api/motos/2
 
 -  **DELETE**:
 ````
-DELETE https://webapp-rm5555.azurewebsites.net/api/motos/3
+DELETE https://webapp-rm5555.azurewebsites.net/api/motos/2
 ````
