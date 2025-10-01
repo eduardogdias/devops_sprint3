@@ -1,0 +1,48 @@
+/* Sidebar fixa à esquerda, mas começa abaixo do header */
+.sidebar {
+    position: absolute;
+    top: 80px; /* altura do header */
+    left: 0;
+    width: 200px;
+    height: calc(100% - 50px); /* ocupa o restante da tela */
+    background-color: #008080; 
+    padding-top: 20px;
+    transition: transform 0.3s ease;
+    z-index: 2; /* valor maior que o do navbar -> fica na frente */
+}
+
+/* Quando escondida */
+.sidebar.hidden {
+    transform: translateX(-200px);
+}
+
+/* Lista de itens */
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+.sidebar ul li img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.sidebar ul li:hover {
+    background-color: #00a6a6; /* tom mais claro no hover */
+}

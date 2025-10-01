@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;  /* Esquerda | Centro | Direita */
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    height: 80px;
+    padding: 0 30px; /* Ajuste opcional */
+    position: relative;
+}
+
+/* Botão da esquerda fica no canto */
+.header .btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.header .btn img {
+    width: 30px;
+    height: 30px;
+}
+
+/* O título fica REALMENTE centralizado na tela */
+.header .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Área da direita encostada no canto direito */
+.direita {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

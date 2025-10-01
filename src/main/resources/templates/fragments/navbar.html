@@ -1,0 +1,7 @@
+<nav class="navbar" th:fragment="navbar(entity)">
+	<div class="nav-links">
+        <a th:href="@{|/web/${entity}/cadastrar|}">Cadastro</a>
+        <a th:href="@{|/web/${entity}/listar|}">Listagem</a>
+    </div>
+	<link rel="stylesheet" th:href="@{/css/navbar.css}">
+</nav>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Motos</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('motos')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	
+    <!-- main -->
+    <main class="content">
+      <div class="container">
+        <h1>Motos cadastradas</h1>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Placa</th>
+                <th>Chassi</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="moto : ${motos}">
+                <td th:text="${moto.id}"></td>
+                <td th:text="${moto.placa}"></td>
+                <td th:text="${moto.chassi}"></td>
+                <td th:text="${moto.marca}"></td>
+                <td th:text="${moto.modelo}"></td>
+                <td class="action-icons">
+                  <a th:href="@{/web/motos/editar/{id}(id=${moto.id})}">
+                    <img th:src="@{/img/edit.png}" alt="Editar">
+                  </a>
+                  <a th:href="@{/web/motos/excluir/{id}(id=${moto.id})}"
+                     onclick="return confirm('Tem certeza que deseja excluir esta moto?');">
+                    <img th:src="@{/img/delete.png}" alt="Excluir">
+                  </a>
+                </td>         
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+    
+    
+    <!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    
+   
+
+</body>
+</html>

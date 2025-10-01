@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Sensores</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('sensores')"></div>
+    
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	
+    <!-- main -->
+    <main class="content">
+      <div class="container">
+        <h1>Sensores cadastrados</h1>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Localização</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="sensor : ${sensores}">
+                <td th:text="${sensor.id}"></td>
+                <td th:text="${sensor.localizacao}"></td>
+                <td th:text="${sensor.data}"></td>
+                <td th:text="${sensor.hora}"></td>
+                <td class="action-icons">
+                  <a th:href="@{/web/sensores/editar/{id}(id=${sensor.id})}">
+                    <img th:src="@{/img/edit.png}" alt="Editar">
+                  </a>
+                  <a th:href="@{/web/sensores/excluir/{id}(id=${sensor.id})}"
+                     onclick="return confirm('Tem certeza que deseja excluir este sensor?');">
+                    <img th:src="@{/img/delete.png}" alt="Excluir">
+                  </a>
+                </td>         
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+    
+    
+    <!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    
+   
+
+</body>
+</html>

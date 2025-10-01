@@ -1,0 +1,129 @@
+:root{
+  --navbar-height: 64px;
+  --sidebar-width: 220px;
+  --blue: #004aad;
+  --yellow: #ffcc00;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(211, 211, 211);
+  color: #333;
+}
+
+
+
+.content {
+  background: #e9e9e9;
+  min-height: calc(100vh - 120px); 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  
+}
+
+
+
+.container {
+  max-width: 40%; /* ou 90% da tela */
+  width: 100%;
+  margin: 50px;
+  background: white;
+  padding: 40px; /* mais espaço interno */
+  border-radius: 10px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.25);
+}
+
+
+.container h1 {
+  text-align: center;
+  color: #008080;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], input[type="number"], select {
+  padding: 10px;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  outline: none;
+}
+
+input:focus {
+  border-color: black;
+  box-shadow: green;
+}
+
+/* botão */
+button {
+  padding: 12px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover { background-color: #00a6a6; }
+
+/* tabela */
+/* tabela */
+.table-wrap { overflow-x:auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  text-align: left;
+  
+}
+table th {
+  background-color: #008080;
+  color: white;
+  font-weight: 700;
+}
+table tr:nth-child(even) { background-color: #d5f2f2; }
+table tr:hover { background-color: #d5f2f2; } 
+
+/* AÇÕES: ícones lado a lado */
+.action-icons {
+  display: flex;              /* flex ao invés de inline-flex */
+  gap: 10px;
+  align-items: center;
+  justify-content: center;    /* centraliza na célula */
+}
+.action-icons img {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+
+
+
+
+/* responsividade simples */
+@media (max-width: 860px) {
+  .sidebar { display: none; }
+  .content { margin-left: 0; padding-top: calc(var(--navbar-height) + 12px); }
+  .container { margin: 12px; }
+}

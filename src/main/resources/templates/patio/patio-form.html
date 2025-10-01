@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Pátios</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('patios')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+
+    <!-- main  -->
+    <main class="content">
+      <div class="container">
+        <h1 th:text="${patio.id == null} ? 'Cadastro de Pátios' : 'Editar Pátio'"></h1>
+
+        <form th:action="@{/web/patios/salvar}" th:object="${patio}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Nome:</label>
+          <input type="text" th:field="*{nome}" 
+          minlength="3" 
+          placeholder="Digite o nome do pátio"
+          required />
+
+          <label>Endereço:</label>
+          <input type="text" th:field="*{endereco}" 
+          minlength="5" 
+          placeholder="Digite o endereço do pátio"
+          required />
+
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </main>
+
+	
+	<!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+</body>
+</html>

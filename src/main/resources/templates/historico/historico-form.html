@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Históricos</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('historicos')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+
+    <!-- main  -->
+    <main class="content">
+      <div class="container">
+        <h1 th:text="${historico.id == null} ? 'Cadastro de Históricos' : 'Editar Histórico'"></h1>
+
+        <form th:action="@{/web/historicos/salvar}" th:object="${historico}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Posição:</label>
+          <input type="text" th:field="*{posicao}" 
+           pattern="\d{10}" 
+           title="A posição vai de 0 até 99" 
+           required 
+           placeholder="Digite a posição (vaga) da moto" />
+
+          <label>Moto Id:</label>
+          <input type="number" th:field="*{moto}" 
+           min="1"
+           required 
+           placeholder="Digite o ID da moto" />
+
+          <label>Zona Id:</label>
+          <input type="number" th:field="*{zona}" 
+           min="1"
+           required 
+           placeholder="Digite o ID da zona" />
+
+		  <label>Sensor Id:</label>
+          <input type="number" th:field="*{sensor}" 
+           min="1"
+           required 
+           placeholder="Digite o ID do sensor" />
+          
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </main>
+
+	
+	<!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+</body>
+</html>

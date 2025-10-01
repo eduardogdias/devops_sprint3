@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Motos</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('motos')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+
+    <!-- main  -->
+    <main class="content">
+      <div class="container">
+        <h1 th:text="${moto.id == null} ? 'Cadastro de Motos' : 'Editar Moto'"></h1>
+
+        <form th:action="@{/web/motos/salvar}" th:object="${moto}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Placa:</label>
+          <input type="text" th:field="*{placa}" 
+           pattern="\d{7}" 
+           title="A placa deve ter exatamente 7 dígitos"
+           required 
+           placeholder="Digite o número da placa" />
+
+          <label>Chassi:</label>
+          <input type="text" th:field="*{chassi}" 
+           pattern="\d{17}" 
+           title="O número do chassi deve ter exatamente 17 dígitos" 
+           required 
+           placeholder="Digite o número do chassi da moto" />
+
+          <label>Modelo:</label>
+		  <select th:field="*{modelo}" required>
+		  	<option value="">Selecione um modelo</option>
+		  	<option value="Pop">Pop</option>
+		  	<option value="Sport">Sport</option>
+		  	<option value="E">E</option>
+		  </select>
+		  
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </main>
+
+	
+	<!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+</body>
+</html>

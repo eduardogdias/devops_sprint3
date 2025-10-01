@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Zonas</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('zonas')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	
+    <!-- main -->
+    <main class="content">
+      <div class="container">
+        <h1>Zonas cadastradas</h1>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>tipo</th>
+                <th>Quantidade de Vagas</th>
+                <th>Pátio Id</th>
+                <th>Pátio Nome</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="zona : ${zonas}">
+                <td th:text="${zona.id}"></td>
+                <td th:text="${zona.tipo}"></td>
+                <td th:text="${zona.qtdVaga}"></td>
+                <td th:text="${zona.patioId}"></td>
+                <td th:text="${zona.patioNome}"></td>
+                <td class="action-icons">
+                  <a th:href="@{/web/zonas/editar/{id}(id=${zona.id})}">
+                    <img th:src="@{/img/edit.png}" alt="Editar">
+                  </a>
+                  <a th:href="@{/web/zonas/excluir/{id}(id=${zona.id})}"
+                     onclick="return confirm('Tem certeza que deseja excluir esta zona?');">
+                    <img th:src="@{/img/delete.png}" alt="Excluir">
+                  </a>
+                </td>         
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+    
+    
+    <!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    
+   
+
+</body>
+</html>

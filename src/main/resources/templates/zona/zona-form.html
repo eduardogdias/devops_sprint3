@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Zonas</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('zonas')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+
+    <!-- main  -->
+    <main class="content">
+      <div class="container">
+        <h1 th:text="${zona.id == null} ? 'Cadastro de Zonas' : 'Editar Zona'"></h1>
+
+        <form th:action="@{/web/zonas/salvar}" th:object="${zona}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Tipo:</label>
+          <input type="text" th:field="*{tipo}"
+          minlength="3" 
+          placeholder="Digite o tipo desta zona"
+          required  />
+
+          <label>Quantidade de Vagas:</label>
+          <input type="number" th:field="*{qtdVaga}"
+           min="1"
+           required 
+           placeholder="Digite a quantidade de vagas da zona" />
+
+          <label>Pátio Id:</label>
+          <input type="number" th:field="*{patio}" 
+		   min="1"
+           required 
+           placeholder="Digite o ID do pátio que esta zona pertence" />
+
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </main>
+
+	
+	<!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+</body>
+</html>

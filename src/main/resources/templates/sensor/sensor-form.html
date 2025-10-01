@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Sensores</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('sensores')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+
+    <!-- main  -->
+    <main class="content">
+      <div class="container">
+        <h1 th:text="${sensor.id == null} ? 'Cadastro de Sensores' : 'Editar Sensor'"></h1>
+
+        <form th:action="@{/web/sensores/salvar}" th:object="${sensor}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Localização:</label>
+          <input type="text" th:field="*{localizacao}" 
+          minlength="3" 
+          required 
+          placeholder="Digite a localização do sensor" />
+
+          <label>Data:</label>
+          <input type="date" th:field="*{data}" required />
+
+          <label>Hora:</label>
+          <input type="time" th:field="*{hora}" required />
+
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </main>
+
+	
+	<!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+</body>
+</html>

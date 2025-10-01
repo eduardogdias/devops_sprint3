@@ -1,0 +1,27 @@
+.footer {
+  background-color: #000000; 
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* ocupa toda a largura, inclusive sob a sidebar */
+  z-index: 1000; /* garante que fica acima da sidebar */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer a {
+  color: #00b031; /* verde para links */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-container p {
+  margin: 5px 0;
+}

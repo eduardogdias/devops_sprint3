@@ -1,0 +1,28 @@
+<header th:fragment="header">
+    <div class="header">
+        <!-- Esquerda -->
+        <button class="btn" id="btnOpcoes">
+        	<img th:src="@{/img/menu.png}" alt="Menu">
+        </button>
+
+        <!-- Centro -->
+        <div class="title">MottuMap</div>
+
+        <!-- Direita -->
+        <div class="direita">  
+        <span class="user-info" sec:authentication="name"></span>
+	        
+	     <button class="btn" id="btnSair">
+	        <a th:href="@{/logout}">
+	        	<img th:src="@{/img/sair.png}" alt="Sair">    
+	        </a>   	
+	      </button>
+	        
+        </div>
+        
+    </div>
+
+    <!-- Import CSS e JS -->
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <script th:src="@{/js/header.js}"></script>
+</header>

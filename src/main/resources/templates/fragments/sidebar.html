@@ -1,0 +1,27 @@
+<aside class="sidebar hidden" th:fragment="sidebar">
+
+	<ul>
+		<li>
+			<img th:src="@{/img/patio.png}" alt="Pátio">
+			<a th:href="@{/web/patios/listar}">Pátio</a>
+		</li>
+		<li>
+			<img th:src="@{/img/zona.png}" alt="Zona">
+			<a th:href="@{/web/zonas/listar}">Zona</a>
+		</li>
+		<li>
+			<img th:src="@{/img/moto.png}" alt="Moto">
+			<a th:href="@{/web/motos/listar}">Moto</a>
+		</li>
+		<li>
+			<img th:src="@{/img/sensor.png}" alt="Sensor">
+			<a th:href="@{/web/sensores/listar}">Sensor</a>
+		</li>
+		<li>
+			<img th:src="@{/img/historico.png}" alt="Histórico">
+			<a th:href="@{/web/historicos/listar}">Histórico</a>			
+		</li>
+	</ul>
+	<link rel="stylesheet" th:href="@{/css/sidebar.css}">
+</aside>
+

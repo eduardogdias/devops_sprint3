@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Pátios</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- cabeçalho -->
+    <div th:replace="fragments/header :: header"></div>
+
+	<!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar('patios')"></div>
+    
+    <!-- sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	
+    <!-- main -->
+    <main class="content">
+      <div class="container">
+        <h1>Pátios cadastrados</h1>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="patio : ${patios}">
+                <td th:text="${patio.id}"></td>
+                <td th:text="${patio.nome}"></td>
+                <td th:text="${patio.endereco}"></td>
+                <td class="action-icons">
+                  <a th:href="@{/web/patios/editar/{id}(id=${patio.id})}">
+                    <img th:src="@{/img/edit.png}" alt="Editar">
+                  </a>
+                  <a th:href="@{/web/patios/excluir/{id}(id=${patio.id})}"
+                     onclick="return confirm('Tem certeza que deseja excluir esta pátio?');">
+                    <img th:src="@{/img/delete.png}" alt="Excluir">
+                  </a>
+                </td>         
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+    
+    
+    <!-- footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    
+   
+
+</body>
+</html>
