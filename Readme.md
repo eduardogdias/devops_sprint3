@@ -75,6 +75,9 @@ chmod +x criacao-deploy.sh
 
 Ao final, será solicitada autorização do GitHub para que o Azure crie o workflow de deploy.
 
+![](images/conectadoGitHubTerminal.png)
+![](images/conectadoGitHub.png)
+
 
 
 ## 5. Configure os Secrets no GitHub
@@ -121,10 +124,9 @@ env:
   SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
 ````
 **Obs:** Atenção à indentação.
+
 Faça o commit e espere o build e deploy serem feitos automaticamente.
 
-![](images/conectadoGitHubTerminal.png)
-![](images/conectadoGitHub.png)
 
 
 
